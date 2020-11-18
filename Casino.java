@@ -11,7 +11,7 @@ public class Casino{
 	}
 
 	public void listGames(String[] games){
-		System.out.println("We offer the following games:");
+		System.out.println("\nWe offer the following games:");
 		int j = 1;
 		for(int i = 0; i < games.length; i++){
 			System.out.println("(" + j + ")" + games[i]);
