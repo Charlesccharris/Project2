@@ -7,7 +7,7 @@ public class Betting{
 
 	public void setMaxBet(int maximumBet){
 		this.maxBet = maximumBet;
-		System.out.println("The max bet is " + maximumBet + " dollars");
+		System.out.println("\nThe max bet is " + maximumBet + " dollars");
 	}
 
 	public void getBet(Scanner input, int totalMoney){
@@ -24,7 +24,6 @@ public class Betting{
 			System.out.println("You don't have that much money to bet, so you will bet the rest of your money");
 			bet = totalMoney;
 		}
-
 		this.currentBet = bet;
 	}
 
@@ -35,7 +34,6 @@ public class Betting{
 		else{
 			money -= currentBet;
 		}
-
 		return money;
 	}
 }
