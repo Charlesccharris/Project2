@@ -6,14 +6,14 @@ public class Main{
 		Scanner input = new Scanner(System.in);
 
 		String casinoName = "Triple C";
-		String choice;
 		int initialMoney = 100;
+		String choice;
+
 		String[] games = {"Slots", "Craps", "Roulette"};
-
 		Casino casino = new Casino(casinoName, initialMoney);
-
 		playAtTheCasino(input, initialMoney, casino, games);
 
+		input.close();
 	}
 
 	public static void playAtTheCasino(Scanner input, int initialMoney, Casino casino, String[] games){
