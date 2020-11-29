@@ -9,7 +9,7 @@ public class Main{
 		int initialMoney = 100;
 		String choice;
 
-		String[] games = {"Slots", "Craps", "Roulette"};
+		String[] games = {"$5 Slots", "$10 Slots", "$20 Slots", "Craps", "Roulette"};
 		Casino casino = new Casino(casinoName, initialMoney);
 		playAtTheCasino(input, initialMoney, casino, games);
 
@@ -36,22 +36,38 @@ public class Main{
 
 	public static int playGame(Scanner input, int choice, int money, Slots slots, Craps craps, Roulette roulette){
 		boolean result = true;
+		int multiplier = 0;
 		switch(choice){
 			case 0: break;
-			case 1: slots.setMaxBet(10);
-				slots.getBet(input, money);
-				result = slots.playSlots();
-				money = slots.determinePrize(money, result);
+			case 1: slots.setSlotBet(5);
+				slots.spinSlots();
+				slots.displayMachine();
+				multiplier = slots.determineSlots();
+				money = slots.determineMultiplierPrize(money, multiplier);
 				break;
-			case 2: craps.setMaxBet(25);
+			case 2: slots.setSlotBet(10);
+				slots.spinSlots();
+				slots.displayMachine();
+				multiplier = slots.determineSlots();
+				money = slots.determineMultiplierPrize(money, multiplier);
+				break;
+			case 3: slots.setSlotBet(20);
+				slots.spinSlots();
+				slots.displayMachine();
+				multiplier = slots.determineSlots();
+				money = slots.determineMultiplierPrize(money, multiplier);
+				break;
+			case 4: craps.setMaxBet(25);
 				craps.getBet(input, money);
 				result = craps.playCraps();
 				money = craps.determinePrize(money, result);
 				break;
-			case 3: roulette.setMaxBet(100);
+			case 5: roulette.setMaxBet(100);
 				roulette.getBet(input, money);
-				result = roulette.playRoulette();
-				money = roulette.determinePrize(money, result);
+				roulette.getPlayerChoice(input);
+				roulette.playRoulette();
+				multiplier = roulette.determineRouletteMultiplier();
+				money = roulette.determineMultiplierPrize(money, multiplier);
 				break;
 			default: System.out.println("Please just choose from the provided list");
 				break;

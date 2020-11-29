@@ -27,12 +27,28 @@ public class Betting{
 		this.currentBet = bet;
 	}
 
+	public void setSlotBet(int bet){
+		System.out.println("You put $" + bet + " into the slot machine.");
+		this.currentBet = bet;
+	}
+
 	public int determinePrize(int money, boolean outcome){
 		if(outcome){
 			money += currentBet;
 		}
 		else{
 			money -= currentBet;
+		}
+		return money;
+	}
+
+	public int determineMultiplierPrize(int money, int multiplier){
+		if(multiplier == 0){
+			money -= currentBet;
+		}
+		else{
+			int outcome = currentBet * multiplier;
+			money += outcome;
 		}
 		return money;
 	}
