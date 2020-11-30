@@ -7,7 +7,6 @@ public class Main{
 
 		String casinoName = "Triple C";
 		int initialMoney = 100;
-		String choice;
 
 		String[] games = {"$5 Slots", "$10 Slots", "$20 Slots", "Craps", "Roulette"};
 		Casino casino = new Casino(casinoName, initialMoney);
